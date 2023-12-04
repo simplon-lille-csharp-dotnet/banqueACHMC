@@ -2,9 +2,10 @@
 {
     public class CompteBancaire : ITransactionnel
     {
-        int Solde { get; set; }
-        int NumCompte { get; set; }
-        int Historique { get; set; }
+
+        private decimal Solde { get; set; }
+        private string? NumCompte { get; set; }
+        private decimal Historique { get; set; }
 
         public decimal AjouterArgent(decimal montant)
         {
@@ -20,5 +21,8 @@
         {
             throw new NotImplementedException();
         }
+
+        List<ITransactionnel> transactionList = new List<ITransactionnel>();
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ConsoleApp2.Client">
-    <Position X="7.75" Y="2.25" Width="1.5" />
+    <Position X="4.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAg=</HashCode>
       <FileName>Client.cs</FileName>
@@ -10,36 +10,30 @@
       <Field Name="transactionList" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="ConsoleApp2.CompteBancaire" Collapsed="true">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+  <Class Name="ConsoleApp2.CompteBancaire">
+    <Position X="11.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACACAAAAAAABAAAAACAACAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>CompteBancaire.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.214" />
+    <Lollipop Position="0.249" />
   </Class>
-  <Class Name="CompteCourant" Collapsed="true">
-    <Position X="13.5" Y="5.5" Width="1.5" />
+  <Class Name="CompteCourant">
+    <Position X="13.5" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CompteCourant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp2.CompteEpargne">
-    <Position X="9.5" Y="5.5" Width="1.5" />
+    <Position X="9.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CompteEpargne.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
-    <Position X="11.25" Y="2.25" Width="1.5" />
-    <NestedTypes>
-      <Class Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
-        <TypeIdentifier />
-        <Lollipop Position="0.2" />
-      </Class>
-    </NestedTypes>
+    <Position X="6.75" Y="1.5" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>

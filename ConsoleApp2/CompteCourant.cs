@@ -3,4 +3,8 @@ using ConsoleApp2;
 
 internal class CompteCourant : CompteBancaire
 {
+    public void InteretCourant()
+    {
+        throw new System.NotImplementedException();
+    }
 }
