@@ -2,37 +2,53 @@
 {
     public class CompteBancaire : ITransactionnel
     {
-        
-
         private decimal Solde { get; set; }
-        private List<Transaction>? TransactionList { get; }
+        private List<Transaction> TransactionList { get; } = new List<Transaction>();
 
         public bool AjouterArgent(decimal montant)
         {
             try
             {
-                // Implémentez la logique pour ajouter de l'argent au solde
                 Solde += montant;
                 TransactionList.Add(new Transaction("Dépôt", montant));
-                return true; // Opération réussie
+                Console.WriteLine($"Ajout de {montant} € au compte.");  
+                return true;
             }
             catch (InvalidOperationException ex)
             {
                 Console.WriteLine($"Erreur lors de l'ajout d'argent : {ex.Message}");
-                return false; // Opération échouée
+                return false;
             }
         }
 
         public bool RetirerArgent(decimal montant)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (montant > Solde)
+                {
+                    Console.WriteLine("Fonds insuffisants pour effectuer le retrait.");
+                    return false;
+                }
+
+                Solde -= montant;
+                TransactionList.Add(new Transaction("Retrait", montant));
+                return true;
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"Erreur lors du retrait d'argent : {ex.Message}");
+                return false;
+            }
         }
 
         public bool VoirSolde()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Solde actuel : {Solde} €");
+            return true;
         }
     }
+
      public class Transaction
     {
         public string Type { get; }
