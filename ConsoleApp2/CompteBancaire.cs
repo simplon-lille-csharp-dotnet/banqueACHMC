@@ -11,7 +11,7 @@
             {
                 Solde += montant;
                 TransactionList.Add(new Transaction("Dépôt", montant));
-                Console.WriteLine($"Ajout de {montant} € au compte.");  
+                Console.WriteLine($"Ancien solde : {Solde - montant} €");  
                 return true;
             }
             catch (InvalidOperationException ex)
