@@ -2,27 +2,52 @@
 {
     public class CompteBancaire : ITransactionnel
     {
+        
 
         private decimal Solde { get; set; }
-        private string? NumCompte { get; set; }
-        private decimal Historique { get; set; }
+        private List<Transaction>? TransactionList { get; }
 
-        public decimal AjouterArgent(decimal montant)
+        public bool AjouterArgent(decimal montant)
+        {
+            try
+            {
+                // Implémentez la logique pour ajouter de l'argent au solde
+                Solde += montant;
+                TransactionList.Add(new Transaction("Dépôt", montant));
+                return true; // Opération réussie
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"Erreur lors de l'ajout d'argent : {ex.Message}");
+                return false; // Opération échouée
+            }
+        }
+
+        public bool RetirerArgent(decimal montant)
         {
             throw new NotImplementedException();
         }
 
-        public decimal RetirerArgent(decimal montant)
+        public bool VoirSolde()
         {
             throw new NotImplementedException();
         }
-
-        public decimal VoirSolde()
-        {
-            throw new NotImplementedException();
-        }
-
-        List<ITransactionnel> transactionList = new List<ITransactionnel>();
-
     }
+     public class Transaction
+    {
+        public string Type { get; }
+        public decimal Montant { get; }
+        public string Date { get; }
+
+        public Transaction(string type, decimal montant)
+        {
+            Type = type;
+            Montant = montant;
+            Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // Format de date personnalisé
+        }
+
+        public override string ToString()
+        {
+            return $"{Date} - {Type}: {Montant} €";
+        }}
 }

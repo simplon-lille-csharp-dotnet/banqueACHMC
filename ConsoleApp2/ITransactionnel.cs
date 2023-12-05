@@ -2,7 +2,13 @@
 
 internal interface ITransactionnel
 {
-    decimal AjouterArgent(decimal montant);
-    decimal RetirerArgent(decimal montant);
-    decimal VoirSolde();
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="montant"></param>
+    /// <returns>the balance</returns>
+    
+    bool AjouterArgent(decimal montant);
+    bool RetirerArgent(decimal montant);
+    bool VoirSolde();
 }
