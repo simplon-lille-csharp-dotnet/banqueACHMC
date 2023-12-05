@@ -2,6 +2,7 @@
 
 namespace ConsoleApp2
 {
+<<<<<<< HEAD
     internal class Program
     {
         private static void Main(string[] args)
@@ -64,5 +65,18 @@ namespace ConsoleApp2
                 }
             }
         }
+=======
+   private static void Main(string[] args)
+    {
+        // Création d'une liste d'interfaces ITransactionnel
+        List<ITransactionnel> transactionList = new List<ITransactionnel>();
+
+        // Ajout d'une instance de CompteBancaire à la liste
+        transactionList.Add(new CompteBancaire());
+
+
+
+
+>>>>>>> 5e2708a8d5abd967eebf64f5c66fc636ad9cb0ff
     }
 }

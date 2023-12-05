@@ -12,15 +12,15 @@ namespace ConsoleApp2
         {
             try
             {
-                // Implémentez la logique pour ajouter de l'argent au solde
                 Solde += montant;
                 TransactionList.Add(new Transaction("Dépôt", montant));
-                return true; // Opération réussie
+                Console.WriteLine($"Ajout de {montant} € au compte.");  
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Erreur lors de l'ajout d'argent : {ex.Message}");
-                return false; // Opération échouée
+                return false;
             }
         }
 
@@ -28,6 +28,7 @@ namespace ConsoleApp2
         {
             try
             {
+<<<<<<< HEAD
                 // Implémentez la logique pour retirer de l'argent du solde
                 if (montant <= Solde)
                 {
@@ -45,6 +46,22 @@ namespace ConsoleApp2
             {
                 Console.WriteLine($"Erreur lors du retrait d'argent : {ex.Message}");
                 return false; // Opération échouée
+=======
+                if (montant > Solde)
+                {
+                    Console.WriteLine("Fonds insuffisants pour effectuer le retrait.");
+                    return false;
+                }
+
+                Solde -= montant;
+                TransactionList.Add(new Transaction("Retrait", montant));
+                return true;
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"Erreur lors du retrait d'argent : {ex.Message}");
+                return false;
+>>>>>>> 5e2708a8d5abd967eebf64f5c66fc636ad9cb0ff
             }
         }
 
@@ -56,11 +73,16 @@ namespace ConsoleApp2
 
         bool ITransactionnel.VoirSolde()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Solde actuel : {Solde} €");
+            return true;
         }
     }
 
+<<<<<<< HEAD
     public class Transaction
+=======
+     public class Transaction
+>>>>>>> 5e2708a8d5abd967eebf64f5c66fc636ad9cb0ff
     {
         public string Type { get; }
         public decimal Montant { get; }
