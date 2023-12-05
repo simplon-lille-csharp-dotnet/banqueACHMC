@@ -25,7 +25,7 @@
         {
             try
             {
-                if (montant > Solde)
+                if (montant > Solde || Solde >= 0)
                 {
                     Console.WriteLine("Fonds insuffisants pour effectuer le retrait.");
                     return false;
