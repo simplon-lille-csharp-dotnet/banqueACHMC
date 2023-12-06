@@ -46,12 +46,12 @@ internal class Program
 
                         if (decimal.TryParse(userInput, out decimal withdrawAmount) && withdrawAmount > 0 && CountDecimalPlaces(userInput) <= 2)
                         {
-                            Console.WriteLine($"La saisie utilisateur : '{withdrawAmount}'");
+                            //Console.WriteLine($"La saisie utilisateur : '{withdrawAmount}'");
 
                             if (compteBancaire.Solde >= withdrawAmount)
                             {
                                 compteBancaire.RetirerArgent(withdrawAmount);
-                                Console.WriteLine($"Retrait de {withdrawAmount:C} effectué avec succès.");
+                                Console.WriteLine($"Retrait de {withdrawAmount} euros effectué avec succès.");
                             }
                             else
                             {
@@ -60,7 +60,7 @@ internal class Program
                         }
                         else
                         {
-                            Console.WriteLine("Montant invalide. Veuillez entrer un nombre décimal avec au plus deux chiffres après la virgule et supérieur à zéro.");
+                            Console.WriteLine("Montant invalide. Veuillez entrer un nombre entier ou décimal avec au plus deux chiffres après la virgule et supérieur à zéro.");
                         }
 
                         Console.ReadLine();
