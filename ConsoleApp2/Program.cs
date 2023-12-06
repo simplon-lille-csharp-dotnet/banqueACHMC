@@ -15,7 +15,7 @@ namespace ConsoleApp2
             Console.Write("Votre choix : ");
 
             if (int.TryParse(Console.ReadLine(), out int choixCompte))
-            {   
+            {
                 //Choix du programme a executer
                 switch (choixCompte)
                 {
@@ -27,7 +27,7 @@ namespace ConsoleApp2
                         // Affichez le menu pour le compte bancaire choisi
                         compteBancaireUI.AfficherMenu();
                         break;
-                    
+
                     case 2:
                         // Créez un compte épargne
                         CompteEpargne compteEpargne = new CompteEpargne(0.5M, 3);
@@ -36,24 +36,19 @@ namespace ConsoleApp2
                         (compteEpargne);
                         // Affichez le menu pour le compte bancaire choisi
                         compteEpargneUI.AfficherMenuCompteEpargne();
-                        break;  
-
-                    
-                    default:
-                        Console.WriteLine("\n\tEntrée invalide. Le programme va se fermer.");
                         break;
-                }
-                
 
-                // Affichez le menu pour le compte bancaire choisi
-                
+                    default:
+                        break;
+
+
+
+
+
+                }
             }
-            else
-            {
-                Console.WriteLine("\n\tEntrée invalide. Le programme va se fermer.");
-            }
+
+
         }
     }
-
-
 }

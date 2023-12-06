@@ -45,12 +45,11 @@ namespace ConsoleApp2
 
                             if (decimal.TryParse(userInput, out decimal withdrawAmount) && withdrawAmount > 0 && CountDecimalPlaces(userInput) <= 2)
                             {
-                                Console.WriteLine($"La saisie utilisateur : '{withdrawAmount}'");
 
                                 if (compteBancaire.Solde >= withdrawAmount)
                                 {
                                     compteBancaire.RetirerArgent(withdrawAmount);
-                                    Console.WriteLine($"Retrait de {withdrawAmount:C} effectué avec succès.");
+                                    Console.WriteLine($"Retrait de {withdrawAmount} euros effectué avec succès.");
                                 }
                                 else
                                 {
