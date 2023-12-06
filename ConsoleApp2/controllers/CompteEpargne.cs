@@ -1,25 +1,54 @@
 ﻿
 namespace ConsoleApp2;
 
+/// <summary>
+/// Represents a savings account.
+/// </summary>
+/// <remarks>
+/// This class inherits from the <see cref="CompteBancaire"/> class and adds additional properties and methods specific to a savings account.
+/// </remarks>
 public class CompteEpargne : CompteBancaire
 {
+    /// <summary>
+    /// Represents the year of a date.
+    /// </summary>
     private int dateYear;
 
+    /// <summary>
+    /// Gets or sets the number of authorized withdrawals.
+    /// </summary>
     private int NombreRetraitsAutorises { get; set; }
 
 
+    /// <summary>
+    /// Gets or sets the number of years.
+    /// </summary>
     public int NombreAnnees { get; set; }
+    /// <summary>
+    /// Gets or sets the estimated balance of the savings account.
+    /// </summary>
     public decimal SoldeEstime { get; set; }
+    /// <summary>
+    /// Gets or sets the interest rate for the savings account.
+    /// </summary>
     public decimal TauxInteret { get; set; }
 
+    /// <summary>
+    /// Represents a savings account.
+    /// 
+    /// </summary>
+    /// <param name="tauxInteret">The interest rate for the savings account.</param>
+    /// <param name="nombreRetraitsAutorises">The number of allowed withdrawals for the savings account.</param>
     public CompteEpargne(decimal tauxInteret, int nombreRetraitsAutorises)
     {
-
-
         TauxInteret = tauxInteret;
         NombreRetraitsAutorises = nombreRetraitsAutorises;
     }
 
+    /// <summary>
+    /// Calculates and updates the estimated balance of the savings account with the interest earned.
+    /// </summary>
+    /// <param name="solde">The current balance of the savings account.</param>
     public void InteretEpargne(decimal solde)
     {
         SoldeEstime = solde;
@@ -30,7 +59,7 @@ public class CompteEpargne : CompteBancaire
     }
 
     /// <summary>
-    /// dsfsdfsdfdsf
+    /// Affiche les prévisions pour les années spécifiées avec un intervalle spécifié
     /// </summary>
     /// <param name="nombreAnnees"></param>
     /// <param name="intervalleAnnees"></param>
@@ -57,6 +86,10 @@ public class CompteEpargne : CompteBancaire
 
         }
     }
+    /// <summary>
+    /// Définit le nombre de retraits autorisés pour le compte épargne.
+    /// </summary>
+    /// <param name="nombreRetraits">Le nombre de retraits autorisés.</param>
     public void DefinirNombreRetraitsAutorises(int nombreRetraits)
     {
         NombreRetraitsAutorises = nombreRetraits;
@@ -76,7 +109,11 @@ public class CompteEpargne : CompteBancaire
         }
     }
 
-    internal int getNombreRetraitsAutorises()
+    /// <summary>
+    /// Gets the number of authorized withdrawals.
+    /// </summary>
+    /// <returns>The number of authorized withdrawals.</returns>
+    internal int GetNombreRetraitsAutorises()
     {
         return NombreRetraitsAutorises;
     }
