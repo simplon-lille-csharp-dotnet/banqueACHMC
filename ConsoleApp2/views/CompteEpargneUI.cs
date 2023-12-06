@@ -12,19 +12,17 @@ namespace ConsoleApp2
             this.compteEpargne = compteEpargne;
         }
 
-     
-
         public void AfficherMenuCompteEpargne()
         {
             while (true)
             {
-                // Add your code here
                 Console.WriteLine("\n1. Ajouter de l'argent");
                 Console.WriteLine("2. Retirer de l'argent");
                 Console.WriteLine("3. Voir le solde");
                 Console.WriteLine("4. Voir les prévisions");
                 Console.WriteLine("5. Définir le nombre de retraits autorisés");
-                Console.WriteLine("6. Quitter");
+                Console.WriteLine("6. Voir l'historique");
+                Console.WriteLine("7. Quitter");
 
                 Console.Write("\n\tChoisissez une option: ");
 
@@ -76,6 +74,12 @@ namespace ConsoleApp2
                             break;
 
                         case 6:
+                            Console.Clear();
+                            compteEpargne.VoirHistorique();
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+                        case 7:
                             Console.WriteLine("\n\tMerci d'avoir utilisé notre service. Au revoir!");
                             return;
 
@@ -88,5 +92,3 @@ namespace ConsoleApp2
         }
     }
 }
-
-
