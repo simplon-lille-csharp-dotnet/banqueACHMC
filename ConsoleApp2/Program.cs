@@ -1,73 +1,58 @@
-﻿namespace ConsoleApp2;
+﻿// ICompteBancaireUI.cs (inchangé)
 
-internal class Program
+// CompteBancaireUI.cs (inchangé)
+
+// Program.cs
+namespace ConsoleApp2
 {
-    private static void Main(string[] args)
+    internal class Program
     {
-        // Creating an instance of CompteBancaire
-        CompteBancaire compteBancaire = new CompteBancaire();
-
-        while (true)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("\n1. Ajouter de l'argent");
-            Console.WriteLine("2. Retirer de l'argent");
-            Console.WriteLine("3. Voir le solde");
-            Console.WriteLine("4. Quitter");
-            Console.Write("\n\tChoisissez une option: ");
+            // Affichez les options de compte
+            Console.WriteLine("Choisissez le type de compte:");
+            Console.WriteLine("1. Compte Bancaire");
+            Console.WriteLine("2. Compte Épargne");
+            Console.WriteLine("3. Compte Courant");
+            Console.Write("Votre choix : ");
 
-            if (int.TryParse(Console.ReadLine(), out int choice))
-            {
-                switch (choice)
+            if (int.TryParse(Console.ReadLine(), out int choixCompte))
+            {   
+                //Choix du programme a executer
+                switch (choixCompte)
                 {
                     case 1:
-                        Console.Clear();
-                        Console.Write("Montant à déposer : ");
-                        decimal depositAmount = Convert.ToInt32(Console.ReadLine());
-                        if(depositAmount <= 0)
-                        {
-                            Console.WriteLine("Montant insuffisant");
-                        }
-                        else { 
-                            compteBancaire.AjouterArgent(depositAmount);
-                            Console.WriteLine("\nAppuyez sur entrée pour retourner au menu");
-                            Console.ReadLine();
-                            Console.Clear();
-                        }
+                        // Créez un compte bancaire
+                        CompteBancaire compteBancaire = new CompteBancaire();
+                        // Créez un objet CompteBancaireUI
+                        CompteBancaireUI compteBancaireUI = new CompteBancaireUI(compteBancaire);
+                        // Affichez le menu pour le compte bancaire choisi
+                        compteBancaireUI.AfficherMenu();
                         break;
-
+                    
                     case 2:
-                        Console.Clear();
-                        Console.Write("Montant à Retirer : ");
-                        decimal withdrawAmount = Convert.ToInt32(Console.ReadLine());
-                        if (withdrawAmount <= 0)
-                        {
-                            Console.WriteLine("Montant invalide");
-                        }
-                        else
-                        {
-                            compteBancaire.RetirerArgent(withdrawAmount);
-                            Console.ReadLine();
-                            Console.Clear();
-                        }
+                        // Créez un compte épargne
+                        CompteEpargne compteEpargne = new CompteEpargne(0.5M, 3);
+                        // Créez un objet CompteEpargneUI
+                        CompteEpargneUI compteEpargneUI = new CompteEpargneUI
+                        (compteEpargne);
+                        // Affichez le menu pour le compte bancaire choisi
+                        compteEpargneUI.AfficherMenuCompteEpargne();
+                        break;  
 
-                        break;
-
-                    case 3:
-                        compteBancaire.VoirSolde();
-                        break;
-
-                    case 4:
-                        Console.WriteLine("\n\tMerci d'avoir utilisé notre service. Au revoir!");
-                        return;
-
+                    
                     default:
-                        Console.WriteLine("\n\tOption invalide. Veuillez choisir une option valide.");
+                        Console.WriteLine("\n\tEntrée invalide. Le programme va se fermer.");
                         break;
                 }
+                
+
+                // Affichez le menu pour le compte bancaire choisi
+                
             }
             else
             {
-                Console.WriteLine("\n\tEntrée invalide. Veuillez entrer un nombre.");
+                Console.WriteLine("\n\tEntrée invalide. Le programme va se fermer.");
             }
         }
     }
