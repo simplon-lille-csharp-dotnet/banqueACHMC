@@ -13,7 +13,7 @@
   <Class Name="ConsoleApp2.CompteBancaire">
     <Position X="11.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAIBAAAAAAAACAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAAAIBAAAAAAAADAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>CompteBancaire.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -27,7 +27,7 @@
   <Class Name="ConsoleApp2.CompteEpargne">
     <Position X="9.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQBABQCCACAAAAAABAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>CompteEpargne.cs</FileName>
     </TypeIdentifier>
   </Class>
