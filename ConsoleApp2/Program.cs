@@ -1,6 +1,4 @@
-﻿// ICompteBancaireUI.cs (inchangé)
 
-// CompteBancaireUI.cs (inchangé)
 
 // Program.cs
 namespace ConsoleApp2
@@ -56,4 +54,6 @@ namespace ConsoleApp2
             }
         }
     }
+
+
 }

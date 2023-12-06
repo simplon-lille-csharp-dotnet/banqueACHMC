@@ -13,31 +13,30 @@
   <Class Name="ConsoleApp2.CompteBancaire">
     <Position X="11.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACACAAAAAAABAAAAACAACAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAACAAAAAAIBAAAAAAAADAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>CompteBancaire.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.249" />
   </Class>
   <Class Name="CompteCourant">
     <Position X="13.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>CompteCourant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConsoleApp2.CompteEpargne">
     <Position X="9.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQBABQCCACAAAAAABAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>CompteEpargne.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
-    <Position X="6.75" Y="1.5" Width="1.5" />
+    <Position X="8.25" Y="1.5" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="ConsoleApp2.ITransactionnel" Collapsed="true">
+  <Interface Name="ConsoleApp2.ITransactionnel">
     <Position X="14.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>

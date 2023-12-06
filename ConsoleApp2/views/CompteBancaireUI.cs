@@ -1,5 +1,6 @@
 // CompteBancaireUI.cs
 using System;
+using System.Globalization;
 
 namespace ConsoleApp2
 {
@@ -39,8 +40,28 @@ namespace ConsoleApp2
                         case 2:
                             Console.Clear();
                             Console.Write("Montant à Retirer : ");
-                            decimal withdrawAmount = Convert.ToDecimal(Console.ReadLine());
-                            compteBancaire.RetirerArgent(withdrawAmount);
+
+                            string? userInput = Console.ReadLine();
+
+                            if (decimal.TryParse(userInput, out decimal withdrawAmount) && withdrawAmount > 0 && CountDecimalPlaces(userInput) <= 2)
+                            {
+                                Console.WriteLine($"La saisie utilisateur : '{withdrawAmount}'");
+
+                                if (compteBancaire.Solde >= withdrawAmount)
+                                {
+                                    compteBancaire.RetirerArgent(withdrawAmount);
+                                    Console.WriteLine($"Retrait de {withdrawAmount:C} effectué avec succès.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Solde insuffisant pour effectuer le retrait.");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Montant invalide. Veuillez entrer un nombre décimal avec au plus deux chiffres après la virgule et supérieur à zéro.");
+                            }
+
                             Console.ReadLine();
                             Console.Clear();
                             break;
@@ -64,5 +85,21 @@ namespace ConsoleApp2
                 }
             }
         }
+    private static decimal tryParse(string? v)
+    {
+        throw new NotImplementedException();
+    }
+    private static int CountDecimalPlaces(string value)
+    {
+        int decimalPlaces = 0;
+        int decimalPointIndex = value.IndexOf(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+
+        if (decimalPointIndex >= 0)
+        {
+            decimalPlaces = value.Length - decimalPointIndex - 1;
+        }
+
+        return decimalPlaces;
+    }
     }
 }
