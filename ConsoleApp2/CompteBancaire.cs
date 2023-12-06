@@ -1,25 +1,30 @@
-﻿namespace ConsoleApp2
-{
-    public class CompteBancaire : ITransactionnel
-    {
-        private decimal Solde { get; set; }
-        private List<Transaction> TransactionList { get; } = new List<Transaction>();
+﻿namespace ConsoleApp2;
 
-        public bool AjouterArgent(decimal montant)
+public class CompteBancaire : ITransactionnel
+{
+    private decimal Solde { get; set; }
+    private List<Transaction> TransactionList { get; } = new List<Transaction>();
+
+    public CompteBancaire()
+    {
+
+    }
+
+    public bool AjouterArgent(decimal montant)
+    {
+        try
         {
-            try
-            {
-                Solde += montant;
-                TransactionList.Add(new Transaction("Dépôt", montant));
-                Console.WriteLine($"Ajout de {montant} € au compte.");  
-                return true;
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine($"Erreur lors de l'ajout d'argent : {ex.Message}");
-                return false;
-            }
+            Solde += montant;
+            TransactionList.Add(new Transaction("Dépôt", montant));
+            Console.WriteLine($"Ancien solde : {Solde - montant} €");
+            return true;
         }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erreur lors de l'ajout d'argent : {ex.Message}");
+            return false;
+        }
+    }
 
         public bool RetirerArgent(decimal montant)
         {
@@ -31,39 +36,26 @@
                     return false;
                 }
 
-                Solde -= montant;
-                TransactionList.Add(new Transaction("Retrait", montant));
-                return true;
-            }
-            catch (InvalidOperationException ex)
-            {
-                Console.WriteLine($"Erreur lors du retrait d'argent : {ex.Message}");
-                return false;
-            }
-        }
-
-        public bool VoirSolde()
-        {
-            Console.WriteLine($"Solde actuel : {Solde} €");
+            Solde -= montant;
+            TransactionList.Add(new Transaction("Retrait", montant));
             return true;
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine($"Erreur lors du retrait d'argent : {ex.Message}");
+            return false;
         }
     }
 
-     public class Transaction
+    public decimal VoirSolde()
     {
-        public string Type { get; }
-        public decimal Montant { get; }
-        public string Date { get; }
+        // Implémentez la logique pour voir le solde
+        return Solde;
+    }
 
-        public Transaction(string type, decimal montant)
-        {
-            Type = type;
-            Montant = montant;
-            Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); // Format de date personnalisé
-        }
-
-        public override string ToString()
-        {
-            return $"{Date} - {Type}: {Montant} €";
-        }}
+    bool ITransactionnel.VoirSolde()
+    {
+        Console.WriteLine($"Solde actuel : {Solde} €");
+        return true;
+    }
 }
