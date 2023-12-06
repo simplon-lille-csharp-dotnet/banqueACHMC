@@ -39,6 +39,9 @@ public class CompteBancaire : ITransactionnel
 
             Solde -= montant;
             TransactionList.Add(new Transaction("Retrait", montant));
+            Console.WriteLine($@"Vous vennez de retirer {montant} euros" + "\n");
+            Console.WriteLine($@"Votre nouveau solde est de {Solde} euros" + "\n");
+            Console.WriteLine("Appuyez sur Entrer pour retourner au menu");
             return true;
         }
         catch (InvalidOperationException ex)
