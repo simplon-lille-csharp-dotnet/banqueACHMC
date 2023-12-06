@@ -54,7 +54,26 @@ public class CompteBancaire : ITransactionnel
     public decimal VoirSolde()
     {
         Console.WriteLine($"\t\nSolde actuel : {Solde} euros");
+        
+
         return Solde;
+    }
+
+    public bool VoirHistorique()
+    {
+        if (TransactionList.Count > 0)
+        {
+            Console.WriteLine("Historique des transactions :");
+            foreach (var transaction in TransactionList)
+            {
+                Console.WriteLine(transaction);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Aucune transaction effectuée.");
+        }
+        return true;
     }
 
     bool ITransactionnel.VoirSolde()

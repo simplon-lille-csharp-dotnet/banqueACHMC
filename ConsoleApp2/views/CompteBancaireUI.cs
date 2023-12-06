@@ -20,7 +20,9 @@ namespace ConsoleApp2
                 Console.WriteLine("\n1. Ajouter de l'argent");
                 Console.WriteLine("2. Retirer de l'argent");
                 Console.WriteLine("3. Voir le solde");
-                Console.WriteLine("4. Quitter");
+                Console.WriteLine("4. Voir l'historique");
+                Console.WriteLine("5. Quitter");
+
                 Console.Write("\n\tChoisissez une option: ");
 
                 if (int.TryParse(Console.ReadLine(), out int choice))
@@ -66,12 +68,20 @@ namespace ConsoleApp2
                             break;
 
                         case 3:
+                            Console.Clear();
                             compteBancaire.VoirSolde();
                             break;
 
                         case 4:
-                            Console.WriteLine("\n\tMerci d'avoir utilisé notre service. Au revoir!");
-                            return;
+                            Console.Clear();
+                            compteBancaire.VoirHistorique();
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+                        case 5:
+                            Console.WriteLine("Merci d'avoir utilisé notre application. À bientôt !");
+                            Environment.Exit(0);
+                            break;    
 
                         default:
                             Console.WriteLine("\n\tOption invalide. Veuillez choisir une option valide.");
