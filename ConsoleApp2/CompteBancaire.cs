@@ -16,12 +16,13 @@ public class CompteBancaire : ITransactionnel
         {
             Solde += montant;
             TransactionList.Add(new Transaction("Dépôt", montant));
-            Console.WriteLine($"Ancien solde : {Solde - montant} €");
+            Console.WriteLine($"\nAncien solde : {Solde - montant} euros");
+            Console.WriteLine($"\nNouveau solde : {Solde} euros");
             return true;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur lors de l'ajout d'argent : {ex.Message}");
+            Console.WriteLine($"\t\nErreur lors de l'ajout d'argent : {ex.Message}");
             return false;
         }
     }
@@ -32,7 +33,7 @@ public class CompteBancaire : ITransactionnel
         {
             if (montant > Solde)
             {
-                Console.WriteLine("Fonds insuffisants pour effectuer le retrait.");
+                Console.WriteLine("\t\nFonds insuffisants pour effectuer le retrait.");
                 return false;
             }
 
@@ -42,14 +43,14 @@ public class CompteBancaire : ITransactionnel
         }
         catch (InvalidOperationException ex)
         {
-            Console.WriteLine($"Erreur lors du retrait d'argent : {ex.Message}");
+            Console.WriteLine($"\t\nErreur lors du retrait d'argent : {ex.Message}");
             return false;
         }
     }
 
     public decimal VoirSolde()
     {
-        // Implémentez la logique pour voir le solde
+        Console.WriteLine($"\t\nSolde actuel : {Solde} euros");
         return Solde;
     }
 

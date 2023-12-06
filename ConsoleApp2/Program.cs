@@ -9,56 +9,65 @@ internal class Program
 
         while (true)
         {
-            Console.WriteLine("1. Ajouter de l'argent");
+            Console.WriteLine("\n1. Ajouter de l'argent");
             Console.WriteLine("2. Retirer de l'argent");
             Console.WriteLine("3. Voir le solde");
             Console.WriteLine("4. Quitter");
-            Console.Write("Choisissez une option (1-4): ");
+            Console.Write("\n\tChoisissez une option: ");
 
             if (int.TryParse(Console.ReadLine(), out int choice))
             {
                 switch (choice)
                 {
                     case 1:
+                        Console.Clear();
                         Console.Write("Montant à déposer : ");
-                        if (decimal.TryParse(Console.ReadLine(), out decimal depositAmount))
+                        decimal depositAmount = Convert.ToInt32(Console.ReadLine());
+                        if(depositAmount <= 0)
                         {
-                            compteBancaire.AjouterArgent(depositAmount);
+                            Console.WriteLine("Montant insuffisant");
                         }
-                        else
-                        {
-                            Console.WriteLine("Montant invalide.");
+                        else { 
+                            compteBancaire.AjouterArgent(depositAmount);
+                            Console.WriteLine("\nAppuyez sur entrée pour retourner au menu");
+                            Console.ReadLine();
+                            Console.Clear();
                         }
                         break;
 
                     case 2:
-                        Console.Write("Montant à retirer : ");
-                        if (decimal.TryParse(Console.ReadLine(), out decimal withdrawAmount))
+                        Console.Clear();
+                        Console.Write("Montant à Retirer : ");
+                        decimal withdrawAmount = Convert.ToInt32(Console.ReadLine());
+                        if (withdrawAmount <= 0)
                         {
-                            compteBancaire.RetirerArgent(withdrawAmount);
+                            Console.WriteLine("Montant invalide");
                         }
                         else
                         {
-                            Console.WriteLine("Montant invalide.");
+                            compteBancaire.RetirerArgent(withdrawAmount);
+                            Console.ReadLine();
+                            Console.Clear();
                         }
+
                         break;
 
                     case 3:
-                        Console.WriteLine($"Solde actuel : {compteBancaire.VoirSolde()}");
+                        compteBancaire.VoirSolde();
                         break;
 
                     case 4:
-                        Console.WriteLine("Merci d'avoir utilisé notre service. Au revoir!");
+                        Console.WriteLine("\n\tMerci d'avoir utilisé notre service. Au revoir!");
                         return;
 
                     default:
-                        Console.WriteLine("Option invalide. Veuillez choisir une option valide.");
+                        Console.WriteLine("\n\tOption invalide. Veuillez choisir une option valide.");
                         break;
                 }
             }
             else
             {
-                Console.WriteLine("Entrée invalide. Veuillez entrer un nombre.");
+                Console.WriteLine("\n\tEntrée invalide. Veuillez entrer un nombre.");
             }
         }
     }
