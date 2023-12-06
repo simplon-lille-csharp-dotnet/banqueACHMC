@@ -2,7 +2,7 @@
 
 public class CompteBancaire : ITransactionnel
 {
-    private decimal Solde { get; set; }
+    public decimal Solde { get; set; }
     private List<Transaction> TransactionList { get; } = new List<Transaction>();
 
     public CompteBancaire()
@@ -10,7 +10,7 @@ public class CompteBancaire : ITransactionnel
 
     }
 
-    public bool AjouterArgent(decimal montant)
+    public virtual bool AjouterArgent(decimal montant)
     {
         try
         {
@@ -27,7 +27,7 @@ public class CompteBancaire : ITransactionnel
         }
     }
 
-    public bool RetirerArgent(decimal montant)
+    public virtual bool RetirerArgent(decimal montant)
     {
         try
         {
