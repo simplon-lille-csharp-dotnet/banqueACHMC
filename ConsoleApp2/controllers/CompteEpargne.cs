@@ -39,10 +39,9 @@ public class CompteEpargne : CompteBancaire
     /// </summary>
     /// <param name="tauxInteret">The interest rate for the savings account.</param>
     /// <param name="nombreRetraitsAutorises">The number of allowed withdrawals for the savings account.</param>
-    public CompteEpargne(decimal tauxInteret, int nombreRetraitsAutorises)
+    public CompteEpargne()
     {
-        TauxInteret = tauxInteret;
-        NombreRetraitsAutorises = nombreRetraitsAutorises;
+     
     }
 
     /// <summary>

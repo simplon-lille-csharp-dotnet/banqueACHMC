@@ -102,4 +102,7 @@ public class CompteBancaire : ITransactionnel
         Console.WriteLine($"Solde actuel : {Solde} €");
         return true;
     }
+
+
 }
+

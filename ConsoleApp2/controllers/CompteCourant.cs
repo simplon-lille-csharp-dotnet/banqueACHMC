@@ -2,11 +2,16 @@
 using ConsoleApp2;
 using System.Reflection.Metadata;
 
-internal class CompteCourant : CompteBancaire
+public class CompteCourant : CompteEpargne
 {
+    
+    public CompteCourant()
+    {
+            
+    }
 
-  public decimal montant { get; set; }
-    public virtual bool AjouterArgent(decimal montant)
+    decimal montant { get; set; }
+    public override bool AjouterArgent(decimal montant)
     { 
         if (montant > 1000)
         {
@@ -34,4 +39,6 @@ internal class CompteCourant : CompteBancaire
     {
         throw new System.NotImplementedException();
     }
+
+     
 }

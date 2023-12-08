@@ -1,19 +1,18 @@
-// CompteEpargneUI.cs
+﻿// CompteEpargneUI.cs
 using System;
 
 namespace ConsoleApp2
 {
-    public class CompteEpargneUI : ICompteEpargneUI
+    public class CompteCourantUI : ICompteCourantUI 
     {
-        public CompteEpargne compteEpargne;
+        public CompteCourant compteCourant;
 
-        public CompteEpargneUI(CompteEpargne compteEpargne)
-        {
-            this.compteEpargne = compteEpargne;
-        }
+        
 
-        public void AfficherMenuCompteEpargne()
+        public void AfficherMenuCompteCourant()
         {
+            compteCourant = new CompteCourant();
+
             while (true)
             {
                 Console.WriteLine("\n1. Ajouter de l'argent");
@@ -34,7 +33,7 @@ namespace ConsoleApp2
                             Console.Clear();
                             Console.Write("Montant à déposer : ");
                             decimal depositAmount = Convert.ToDecimal(Console.ReadLine());
-                            compteEpargne.AjouterArgent(depositAmount);
+                            compteCourant.AjouterArgent(depositAmount);
                             Console.WriteLine("\nAppuyez sur entrée pour retourner au menu");
                             Console.ReadLine();
                             Console.Clear();
@@ -44,13 +43,13 @@ namespace ConsoleApp2
                             Console.Clear();
                             Console.Write("Montant à Retirer : ");
                             decimal withdrawAmount = Convert.ToDecimal(Console.ReadLine());
-                            compteEpargne.RetirerArgent(withdrawAmount);
+                            compteCourant.RetirerArgent(withdrawAmount);
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 3:
-                            compteEpargne.VoirSolde();
+                            compteCourant.VoirSolde();
                             break;
 
                         case 4:
@@ -59,7 +58,7 @@ namespace ConsoleApp2
                             int nombreAnnees = Convert.ToInt32(Console.ReadLine());
                             Console.Write("Intervalle d'années : ");
                             int intervalleAnnees = Convert.ToInt32(Console.ReadLine());
-                            compteEpargne.VoirPrevisions(nombreAnnees, intervalleAnnees);
+                            compteCourant.VoirPrevisions(nombreAnnees, intervalleAnnees);
                             Console.ReadLine();
                             Console.Clear();
                             break;
@@ -68,14 +67,14 @@ namespace ConsoleApp2
                             Console.Clear();
                             Console.Write("Nombre de retraits autorisés : ");
                             int nombreRetraits = Convert.ToInt32(Console.ReadLine());
-                            compteEpargne.DefinirNombreRetraitsAutorises(nombreRetraits);
+                            compteCourant.DefinirNombreRetraitsAutorises(nombreRetraits);
                             Console.ReadLine();
                             Console.Clear();
                             break;
 
                         case 6:
                             Console.Clear();
-                            compteEpargne.VoirHistorique();
+                            compteCourant.VoirHistorique();
                             Console.ReadLine();
                             Console.Clear();
                             break;
