@@ -9,16 +9,11 @@ namespace ConsoleApp2;
 /// </remarks>
 public class CompteEpargne : CompteBancaire
 {
-    /// <summary>
-    /// Represents the year of a date.
-    /// </summary>
-    private int dateYear;
+   
 
-    /// <summary>
-    /// Gets or sets the number of authorized withdrawals.
-    /// </summary>
-    private int NombreRetraitsAutorises { get; set; }
+ 
 
+<<<<<<< HEAD
     public decimal tauxInteret;
     public int nombreRetraitsAutorises;
 
@@ -100,6 +95,8 @@ public class CompteEpargne : CompteBancaire
         NombreRetraitsAutorises = nombreRetraits;
         Console.WriteLine($"Nombre de retraits autorisés défini à : {nombreRetraits}");
     }
+=======
+>>>>>>> 6fbf9b5ee5325cf0e2177eb38f6465e8c0960b29
     public override bool RetirerArgent(decimal montant)
     {
         if (NombreRetraitsAutorises > 0)
