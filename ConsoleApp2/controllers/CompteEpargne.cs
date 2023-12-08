@@ -42,6 +42,13 @@ public class CompteEpargne : CompteBancaire
     /// </summary>
     /// <param name="tauxInteret">The interest rate for the savings account.</param>
     /// <param name="nombreRetraitsAutorises">The number of allowed withdrawals for the savings account.</param>
+<<<<<<< HEAD
+=======
+    public CompteEpargne()
+    {
+     
+    }
+>>>>>>> 4164001c224d835e0e3f013bf6c7f8643a11d0b1
 
     /// <summary>
     /// Calculates and updates the estimated balance of the savings account with the interest earned.

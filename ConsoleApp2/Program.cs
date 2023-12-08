@@ -38,6 +38,14 @@ namespace ConsoleApp2
                         compteEpargneUI.AfficherMenuCompteEpargne();
                         break;
 
+                    case 3:
+                        // Créez un compte épargne
+                        CompteCourant compteCourant = new CompteCourant();
+                        // Créez un objet CompteEpargneUI
+                        CompteCourantUI compteCourantUI = new CompteCourantUI();
+                        // Affichez le menu pour le compte bancaire choisi
+                        compteCourantUI.AfficherMenuCompteCourant();
+                        break;
                     default:
                         break;
 

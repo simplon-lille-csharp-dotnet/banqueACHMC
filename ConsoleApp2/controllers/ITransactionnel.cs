@@ -30,4 +30,5 @@ internal interface ITransactionnel
     /// </summary>
     /// <returns>True if the operation is successful, otherwise false.</returns>
     bool VoirHistorique();
+
 }
