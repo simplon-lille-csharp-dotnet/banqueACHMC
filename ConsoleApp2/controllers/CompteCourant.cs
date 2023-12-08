@@ -2,7 +2,7 @@
 using ConsoleApp2;
 using System.Reflection.Metadata;
 
-public class CompteCourant : CompteEpargne
+public class CompteCourant : CompteBancaire
 {
     
     public CompteCourant()
@@ -18,10 +18,9 @@ public class CompteCourant : CompteEpargne
             //throw new InvalidOperationException("Montant trop élevé");
             Console.WriteLine("Montant trop élevé");
             return false;
-         
+
         }
-        return true;
-    
+      return base.AjouterArgent(montant);
     }
 
     public override bool RetirerArgent(decimal montant)
@@ -32,7 +31,7 @@ public class CompteCourant : CompteEpargne
             Console.WriteLine("Montant trop élevé");
             return false;
         }
-        return true;
+        return base.RetirerArgent(montant);
     }
 
     public void InteretCourant()
