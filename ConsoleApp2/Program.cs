@@ -60,7 +60,7 @@ namespace ConsoleApp2
 
                     case 2:
                         // Créez un compte épargne
-                        CompteEpargne compteEpargne = new CompteEpargne(0.5M, 3);
+                        CompteEpargne compteEpargne = new CompteEpargne();
                         // Créez un objet CompteEpargneUI
                         CompteEpargneUI compteEpargneUI = new CompteEpargneUI
                         (compteEpargne);
@@ -69,7 +69,12 @@ namespace ConsoleApp2
                         break;
 
                     case 3:
-                        Console.WriteLine("Compte Courant");
+                        // Créez un compte épargne
+                        CompteCourant compteCourant = new CompteCourant();
+                        // Créez un objet CompteEpargneUI
+                        CompteCourantUI compteCourantUI = new CompteCourantUI();
+                        // Affichez le menu pour le compte bancaire choisi
+                        compteCourantUI.AfficherMenuCompteCourant();
                         break;
                     default:
                         break;
