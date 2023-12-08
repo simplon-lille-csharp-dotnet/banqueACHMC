@@ -1,14 +1,14 @@
-using System   ;
+using System;
 
 // Interface for the type of user that can be created
-
 public interface IUser
 {
-    public string Username { get; set; }
-    public string Password { get; set; }
-    public bool Login();
-    public bool Logout();
+    string Username { get; set; }
+    string Password { get; set; }
+    bool Login();
+    bool Logout();
 }
+
 
 public interface IAdmin : IUser
 {

@@ -10,14 +10,25 @@ namespace ConsoleApp2
     internal class Program
     {
         private static void Main(string[] args)
+
         {
+            string jsonFilePath = "./data/clients.json";
+
+
+            // Créez une instance de la classe ClientList
+            ClientList clientList = new ClientList();
+
+            // Importez les données des clients depuis le fichier JSON
+            clientList.ImportFromJson(jsonFilePath);
+
+
 
             // Affichez le menu principal
             Console.WriteLine("Bienvenue dans le système de gestion de compte bancaire");
+
             // Se connecter
-            Client client = new Client();
+            Client client = new Client(clientList.Clients);
             // Se connecter
-            
             while (!client.Login())
             {
                 Console.WriteLine("Veuillez réessayer");
