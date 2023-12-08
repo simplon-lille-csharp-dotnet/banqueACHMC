@@ -19,6 +19,9 @@ public class CompteEpargne : CompteBancaire
     /// </summary>
     private int NombreRetraitsAutorises { get; set; }
 
+    public decimal tauxInteret;
+    public int nombreRetraitsAutorises;
+
 
     /// <summary>
     /// Gets or sets the number of years.
@@ -39,11 +42,6 @@ public class CompteEpargne : CompteBancaire
     /// </summary>
     /// <param name="tauxInteret">The interest rate for the savings account.</param>
     /// <param name="nombreRetraitsAutorises">The number of allowed withdrawals for the savings account.</param>
-    public CompteEpargne(decimal tauxInteret, int nombreRetraitsAutorises)
-    {
-        TauxInteret = tauxInteret;
-        NombreRetraitsAutorises = nombreRetraitsAutorises;
-    }
 
     /// <summary>
     /// Calculates and updates the estimated balance of the savings account with the interest earned.
