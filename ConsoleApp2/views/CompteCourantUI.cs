@@ -5,7 +5,7 @@ namespace ConsoleApp2
 {
     public class CompteCourantUI : ICompteCourantUI 
     {
-        public CompteCourant compteCourant;
+        public CompteCourant? compteCourant;
 
         
 
