@@ -1,11 +1,8 @@
 // ICompteBancaireUI.cs
-namespace ConsoleApp2
+namespace BanqueAcmc
 {
     public interface ICompteBancaireUI
     {
-        /// <summary>
-        /// Displays the menu for the CompteBancaireUI.
-        /// </summary>
         void AfficherMenu();
     }
 }

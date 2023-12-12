@@ -2,7 +2,7 @@
 using System;
 using System.Globalization;
 
-namespace ConsoleApp2
+namespace BanqueAcmc
 {
     public class CompteBancaireUI : ICompteBancaireUI
     {
@@ -94,10 +94,7 @@ namespace ConsoleApp2
                 }
             }
         }
-    private static decimal tryParse(string? v)
-    {
-        throw new NotImplementedException();
-    }
+
     private static int CountDecimalPlaces(string value)
     {
         int decimalPlaces = 0;
