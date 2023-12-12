@@ -1,18 +1,18 @@
-﻿// CompteEpargneUI.cs
-using System;
+﻿using System;
 
-namespace ConsoleApp2
+namespace BanqueAcmc
 {
-    public class CompteCourantUI : ICompteCourantUI 
+    public class CompteCourantUI : Program, ICompteCourantUI
     {
-        public CompteCourant? compteCourant;
+        private CompteCourant compteCourant;
 
-        
+        public CompteCourantUI(CompteCourant compteCourant)
+        {
+            this.compteCourant = compteCourant;
+        }
 
         public void AfficherMenuCompteCourant()
         {
-            compteCourant = new CompteCourant();
-
             while (true)
             {
                 Console.WriteLine("\n1. Ajouter de l'argent");
@@ -21,7 +21,8 @@ namespace ConsoleApp2
                 Console.WriteLine("4. Voir les prévisions");
                 Console.WriteLine("5. Définir le nombre de retraits autorisés");
                 Console.WriteLine("6. Voir l'historique");
-                Console.WriteLine("7. Quitter");
+                Console.WriteLine("7. Retourner au menu principal");
+                Console.WriteLine("8. Quitter");
 
                 Console.Write("\n\tChoisissez une option: ");
 
@@ -78,9 +79,14 @@ namespace ConsoleApp2
                             Console.ReadLine();
                             Console.Clear();
                             break;
+
                         case 7:
+                            Program.MenuMain();
+                            break;
+
+                        case 8:
                             Console.WriteLine("\n\tMerci d'avoir utilisé notre service. Au revoir!");
-                            return;
+                            break;
 
                         default:
                             Console.WriteLine("\n\tOption invalide. Veuillez choisir une option valide.");

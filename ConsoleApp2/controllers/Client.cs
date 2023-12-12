@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace ConsoleApp2
+namespace BanqueAcmc
 {
 
 
@@ -29,21 +29,24 @@ namespace ConsoleApp2
 
         public bool Login()
         {
-            Console.WriteLine("Entrez votre nom d'utilisateur : ");
+            Console.WriteLine("\nEntrez votre nom d'utilisateur : ");
             string username = Console.ReadLine();
-            Console.WriteLine("Entrez votre mot de passe : ");
+            Console.WriteLine("\nEntrez votre mot de passe : ");
             string password = Console.ReadLine();
 
             Client client = clients.FirstOrDefault(c => c.Username == username && c.Password == password);
 
             if (client != null)
             {
-                Console.WriteLine($"Vous êtes connecté en tant que {client.FirstName} {client.LastName}");
+                Console.WriteLine($"\n\tVous êtes connecté en tant que {client.FirstName} {client.LastName}");
+                Console.WriteLine("\nAppuyez sur entrer !");
+                Console.ReadLine();
+                Console.Clear();
                 return true;
             }
             else
             {
-                Console.WriteLine("Nom d'utilisateur ou mot de passe incorrect");
+                Console.WriteLine("\n\tNom d'utilisateur ou mot de passe incorrect");
                 return false;
             }
         }
@@ -51,7 +54,7 @@ namespace ConsoleApp2
         public bool Logout()
         {
             Console.Clear();
-            Console.WriteLine("Voulez-vous vraiment vous déconnecter ? (O/N)");
+            Console.WriteLine("\n\tVoulez-vous vraiment vous déconnecter ? (O/N)");
             string answer = Console.ReadLine();
             return (answer == "O" || answer == "o");
         }
@@ -87,7 +90,7 @@ namespace ConsoleApp2
         {
             string json = JsonConvert.SerializeObject(clients, Formatting.Indented);
             File.WriteAllText(filePath, json);
-            Console.WriteLine($"Les données des clients ont été exportées vers {filePath}");
+            Console.WriteLine($"\n\tLes données des clients ont été exportées vers {filePath}");
         }
 
         public Client GetClient(string username)

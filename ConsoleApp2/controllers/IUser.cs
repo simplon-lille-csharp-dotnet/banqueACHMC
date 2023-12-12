@@ -1,6 +1,6 @@
 using System;
 
-// Interface for the type of user that can be created
+
 public interface IUser
 {
     string Username { get; set; }

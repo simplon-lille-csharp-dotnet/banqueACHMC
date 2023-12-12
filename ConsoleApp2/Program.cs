@@ -1,18 +1,26 @@
 
 
 // Program.cs
-/// <summary>
-/// Represents the main namespace for the console application.
-/// </summary>
 
-namespace ConsoleApp2
+using System.Security.Cryptography.X509Certificates;
+
+namespace BanqueAcmc
 {
-    internal class Program
+    public class Program
     {
+
+
+        // Créez un compte épargne
+        static CompteEpargne compteEpargne = new CompteEpargne();
+
+        // Créez un compte courant
+        static CompteCourant compteCourant = new CompteCourant();
         private static void Main(string[] args)
 
         {
-            string jsonFilePath = "./data/clients.json";
+            string jsonFilePath = Path.Combine("data", "clients.json");
+
+            Console.WriteLine(jsonFilePath);
 
 
             // Créez une instance de la classe ClientList
@@ -21,28 +29,31 @@ namespace ConsoleApp2
             // Importez les données des clients depuis le fichier JSON
             clientList.ImportFromJson(jsonFilePath);
 
-
+            
 
             // Affichez le menu principal
-            Console.WriteLine("Bienvenue dans le système de gestion de compte bancaire");
+            Console.WriteLine("\t\t\nBienvenue dans le système de gestion de compte bancaire");
 
             // Se connecter
             Client client = new Client(clientList.Clients);
             // Se connecter
             while (!client.Login())
             {
-                Console.WriteLine("Veuillez réessayer");
+                Console.WriteLine("\n\tVeuillez réessayer");
             }
 
 
-
+            MenuMain();
+            
+        }
+        public static void MenuMain()
+        {
             // Affichez les options de compte
-            Console.WriteLine("Choisissez le type de compte:");
-            Console.WriteLine("1. Compte Bancaire");
-            Console.WriteLine("2. Compte Épargne");
-            Console.WriteLine("3. Compte Courant");
+            Console.WriteLine("\nChoisissez le type de compte:");
+            Console.WriteLine("\n1. Compte Épargne");
+            Console.WriteLine("2. Compte Courant");
 
-            Console.Write("Votre choix : ");
+            Console.Write("\n\tVotre choix : ");
 
             if (int.TryParse(Console.ReadLine(), out int choixCompte))
             {
@@ -50,43 +61,24 @@ namespace ConsoleApp2
                 switch (choixCompte)
                 {
                     case 1:
-                        // Créez un compte bancaire
-                        CompteBancaire compteBancaire = new CompteBancaire();
-                        // Créez un objet CompteBancaireUI
-                        CompteBancaireUI compteBancaireUI = new CompteBancaireUI(compteBancaire);
-                        // Affichez le menu pour le compte bancaire choisi
-                        compteBancaireUI.AfficherMenu();
-                        break;
-
-                    case 2:
-                        // Créez un compte épargne
-                        CompteEpargne compteEpargne = new CompteEpargne();
                         // Créez un objet CompteEpargneUI
-                        CompteEpargneUI compteEpargneUI = new CompteEpargneUI
-                        (compteEpargne);
+                        CompteEpargneUI compteEpargneUI = new CompteEpargneUI(compteEpargne);
                         // Affichez le menu pour le compte bancaire choisi
                         compteEpargneUI.AfficherMenuCompteEpargne();
                         break;
 
-                    case 3:
-                        // Créez un compte épargne
-                        CompteCourant compteCourant = new CompteCourant();
+                    case 2:
                         // Créez un objet CompteEpargneUI
-                        CompteCourantUI compteCourantUI = new CompteCourantUI();
+                        CompteCourantUI compteCourantUI = new CompteCourantUI(compteCourant);
                         // Affichez le menu pour le compte bancaire choisi
                         compteCourantUI.AfficherMenuCompteCourant();
                         break;
                     default:
                         break;
-
-
-
-
-
                 }
             }
 
-
         }
+
     }
 }

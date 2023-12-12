@@ -1,43 +1,39 @@
-﻿// See https://aka.ms/new-console-template for more information
-using ConsoleApp2;
-using System.Reflection.Metadata;
+﻿using System;
 
-public class CompteCourant : CompteBancaire
+namespace BanqueAcmc
 {
-    
-    public CompteCourant()
+    public class CompteCourant : CompteBancaire
     {
-            
-    }
+        public Guid newId = Guid.NewGuid();
 
-    decimal montant { get; set; }
-    public override bool AjouterArgent(decimal montant)
-    { 
-        if (montant > 1000)
+        public CompteCourant()
         {
-            //throw new InvalidOperationException("Montant trop élevé");
-            Console.WriteLine("Montant trop élevé");
-            return false;
-
         }
-      return base.AjouterArgent(montant);
-    }
 
-    public override bool RetirerArgent(decimal montant)
-    {
-        if (montant > 500)
+        public override bool AjouterArgent(decimal montant)
         {
-            //throw new InvalidOperationException("Montant trop élevé");
-            Console.WriteLine("Montant trop élevé");
-            return false;
+            Console.WriteLine(newId);
+            if (montant > 1000)
+            {
+                Console.WriteLine("Montant trop élevé");
+                return false;
+            }
+            return base.AjouterArgent(montant);
         }
-        return base.RetirerArgent(montant);
-    }
 
-    public void InteretCourant()
-    {
-        throw new System.NotImplementedException();
-    }
+        public override bool RetirerArgent(decimal montant)
+        {
+            if (montant > 500)
+            {
+                Console.WriteLine("Montant trop élevé");
+                return false;
+            }
+            return base.RetirerArgent(montant);
+        }
 
-     
+        public void InteretCourant()
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

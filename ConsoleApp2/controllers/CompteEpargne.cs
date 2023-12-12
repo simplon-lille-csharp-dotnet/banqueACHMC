@@ -1,40 +1,38 @@
 ﻿using System;
 
-namespace ConsoleApp2
+namespace BanqueAcmc
 {
-    /// <summary>
-    /// Represents a savings account.
-    /// </summary>
-    /// <remarks>
-    /// This class inherits from the <see cref="CompteBancaire"/> class and adds additional properties and methods specific to a savings account.
-    /// </remarks>
+    // Représente un compte épargne.
+    // Cette classe hérite de la classe CompteBancaire et ajoute des propriétés et des méthodes spécifiques à un compte épargne.
     public class CompteEpargne : CompteBancaire
     {
+        // Solde estimé du compte épargne.
         public new decimal SoldeEstime { get; set; }
+
+        // Taux d'intérêt du compte épargne.
         public new decimal TauxInteret { get; set; }
+
+        // Nombre de retraits autorisés pour le compte épargne.
         public new int NombreRetraitsAutorises { get; set; }
 
-        /// <summary>
-        /// Represents a savings account.
-        /// </summary>
+        // Initialise un nouveau compte épargne.
         public CompteEpargne()
         {
-            // Initialize properties in the constructor
+            // Initialise les propriétés dans le constructeur.
             SoldeEstime = 0;
             TauxInteret = 0;
             NombreRetraitsAutorises = 0;
+            newId = Guid.NewGuid();
         }
 
-        /// <summary>
-        /// Calculates and updates the estimated balance of the savings account with the interest earned.
-        /// </summary>
-        /// <param name="solde">The current balance of the savings account.</param>
+        // Calcule et met à jour le solde estimé du compte épargne avec les intérêts gagnés.
         public new void InteretEpargne(decimal solde)
         {
-            if ( SoldeEstime == 0)
+            // Vérifie si le solde estimé n'est pas initialisé.
+            if (SoldeEstime == 0)
             {
-                // Handle the null case or throw an exception based on your requirements
-                // Example: throw new InvalidOperationException("SoldeEstime is not initialized.");
+                // Gérer le cas où le solde estimé n'est pas initialisé.
+                // Exemple : throw new InvalidOperationException("SoldeEstime n'est pas initialisé.");
             }
 
             decimal interets = SoldeEstime * TauxInteret;
@@ -43,12 +41,10 @@ namespace ConsoleApp2
             //Console.WriteLine($"Intérêts : {interets} €");
         }
 
-        /// <summary>
-        /// Définit le nombre de retraits autorisés pour le compte épargne.
-        /// </summary>
-        /// <param name="nombreRetraits">Le nombre de retraits autorisés.</param>
+        // Définit le nombre de retraits autorisés pour le compte épargne.
         public new void DefinirNombreRetraitsAutorises(int nombreRetraits)
         {
+            // Vérifie si le nombre de retraits est valide (non négatif).
             if (nombreRetraits >= 0)
             {
                 NombreRetraitsAutorises = nombreRetraits;
@@ -56,13 +52,15 @@ namespace ConsoleApp2
             }
             else
             {
-                // Handle the case where the input is invalid (negative)
-                // Example: throw new ArgumentException("Nombre de retraits autorisés ne peut pas être négatif.");
+                // Gérer le cas où l'entrée n'est pas valide (négative).
+                // Exemple : throw new ArgumentException("Nombre de retraits autorisés ne peut pas être négatif.");
             }
         }
 
+        // Retire de l'argent du compte épargne.
         public override bool RetirerArgent(decimal montant)
         {
+            // Vérifie s'il reste des retraits autorisés.
             if (NombreRetraitsAutorises > 0)
             {
                 NombreRetraitsAutorises--;
@@ -75,6 +73,7 @@ namespace ConsoleApp2
             }
         }
 
+        // Retourne le nombre de retraits autorisés restants.
         internal int GetNombreRetraitsAutorises()
         {
             return NombreRetraitsAutorises;

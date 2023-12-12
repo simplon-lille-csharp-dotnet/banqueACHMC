@@ -1,5 +1,5 @@
 ﻿// ICompteCourantUI.cs
-namespace ConsoleApp2
+namespace BanqueAcmc
 {
     public interface ICompteCourantUI
     {
